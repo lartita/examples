@@ -7,7 +7,7 @@ echo "region set to ${region}"
 
 sam build #--use-container
 
-bucket="kmullaney-demo-${region}-${accountId}"
+bucket="lthompson-demo-${region}-${accountId}"
 
 aws s3 mb --region "${region}" "s3://${bucket}"
 

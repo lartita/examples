@@ -1,4 +1,4 @@
-service: kmullaney-extension-only-layer-serverless
+service: lthompson-extension-only-layer-serverless
 
 useDotenv: true
 
@@ -9,11 +9,11 @@ provider:
   timeout: 4
   logRetentionInDays: 3
   tags:
-    owner: kmullaney
+    owner: lthompson
     reason: demo
     description: "demo a Lambda using SAM deploy"
   stackTags:
-    owner: kmullaney
+    owner: lthompson
     reason: demo
     description: "demo a Lambda using SAM deploy"
   environment:

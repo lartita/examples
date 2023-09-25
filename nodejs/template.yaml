@@ -9,17 +9,17 @@ Parameters:
     AllowedPattern: '[0-9]+'
 
 Resources:
-  kmullaneyextensiononlylayersam:
+  lthompsonextensiononlylayersam:
     Type: AWS::Serverless::Function
     Properties:
       # In this example, we're using the SAM CLI to package and deploy our lambda. SAM will transform this value during the publish step.
       CodeUri: demo-sam/
       Description: A simple Lambda, with New Relic telemetry
       Tags:
-        owner: kmullaney
+        owner: lthompson
         reason: demo
         description: demo a Lambda using SAM deploy
-      FunctionName: kmullaneyextensiononlylayersam
+      FunctionName: lthompsonextensiononlylayersam
       # The handler for your function needs to be the one provided by the instrumentation layer, below.
       # Handler: newrelic-lambda-wrapper.handler
       Handler: app.lambdaHandler
@@ -29,7 +29,7 @@ Resources:
       Environment:
         Variables:
           NEW_RELIC_NO_CONFIG_FILE: true                         # Lambda uses environment variables instead
-          NEW_RELIC_APP_NAME: kmullaneyextensiononlylayersam     # the function will be named the same as in AWS
+          NEW_RELIC_APP_NAME: lthompsonextensiononlylayersam     # the function will be named the same as in AWS
           NEW_RELIC_LAMBDA_HANDLER: app.lambdaHandler            # so the instrumentation handler can invoke your real handler
           NEW_RELIC_ACCOUNT_ID: !Sub ${NRAccountId}              # your New Relic account ID
           NEW_RELIC_TRUSTED_ACCOUNT_KEY: !Sub ${NRAccountId}     # your parent New Relic account ID or New Relic account ID if no parent
@@ -52,6 +52,6 @@ Resources:
   Logs:
     Type: AWS::Logs::LogGroup
     Properties:
-      LogGroupName: {"Fn::Join": ["", ["/aws/lambda/", {"Ref": "kmullaneyextensiononlylayersam"}]]}
+      LogGroupName: {"Fn::Join": ["", ["/aws/lambda/", {"Ref": "lthompsonextensiononlylayersam"}]]}
       # Lambda functions will auto-create their log group on first execution, but it retains logs forever, which can get expensive.
       RetentionInDays: 3

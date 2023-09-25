@@ -1,4 +1,4 @@
-service: kmullaney-extension-only-layer-serverless
+service: lthompson-extension-only-layer-serverless
 
 useDotenv: true
 
@@ -9,11 +9,11 @@ provider:
   timeout: 10
   logRetentionInDays: 14
   tags:
-    owner: kmullaney
+    owner: lthompson
     reason: case
     description: "123456"
   stackTags:
-    owner: kmullaney
+    owner: lthompson
     reason: case
     description: "123456"
   environment:
